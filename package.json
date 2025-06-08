@@ -1,0 +1,27 @@
+{
+  "name": "dpass-contracts",
+  "version": "1.0.0",
+  "description": "dpass-contracts",
+  "main": "index.ts",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hardenerdev/dpass-contracts.git"
+  },
+  "author": "hardenerdev",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/hardenerdev/dpass-contracts/issues"
+  },
+  "homepage": "https://github.com/hardenerdev/dpass-contracts#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "@types/node": "^22.15.30",
+    "@typescript-eslint/eslint-plugin": "^8.33.1",
+    "@typescript-eslint/parser": "^8.33.1",
+    "hardhat": "^2.24.2",
+    "typescript": "^5.8.3"
+  }
+}
