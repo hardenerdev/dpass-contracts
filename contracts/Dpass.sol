@@ -17,6 +17,11 @@ contract Dpass is Ownable, Pausable {
     // event: price updated
     event UpdatePrice(uint256);
 
+    /**
+     * constructor
+     * @param initialOwner contract owner
+     * @param initialPrice initial price
+     */
     constructor(address initialOwner, uint256 initialPrice)
         Ownable(initialOwner)
     {
@@ -32,14 +37,16 @@ contract Dpass is Ownable, Pausable {
     /**
      * get NFT when price is payed
      */
-    function getDpassNFT() public payable whenNotPaused {
+    function getDpassNFT() public payable whenNotPaused returns (uint256 token) {
         require(
             msg.value >= price,
-            "Cannot subscribe, not enouth funds."
+            "Cannot buy NFT, not enouth funds."
         );
 
         uint256 tokenId = dpassNFT.safeMint(msg.sender);
         emit TokenMinted(msg.sender, tokenId);
+
+        return tokenId;
     }
 
     /**
@@ -68,5 +75,20 @@ contract Dpass is Ownable, Pausable {
      */
     function unpause() public onlyOwner whenPaused {
         _unpause();
+    }
+
+    /**
+     * get contract balance
+     */
+    function getBalance() public view returns (uint256 balance) {
+        return address(this).balance;
+    }
+
+    /**
+     * withdraw contract funds
+     */
+    function withdraw() public onlyOwner {
+        uint256 balance = address(this).balance;
+        payable(msg.sender).transfer(balance);
     }
 }
