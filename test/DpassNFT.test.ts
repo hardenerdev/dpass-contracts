@@ -7,7 +7,7 @@ const { anyValue } = require("@nomicfoundation/hardhat-chai-matchers/withArgs")
 const { expect } = require("chai")
 const { ethers } = require("hardhat")
 
-describe('DappHomes', function () {
+describe('DpassNFT', function () {
     async function deployDpassNFTFixture() {
         const [owner, otherAccount] = await ethers.getSigners()
 
